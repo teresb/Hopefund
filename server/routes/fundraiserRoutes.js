@@ -9,8 +9,10 @@ const {
 } = require('../controllers/fundraiser');
 
 const authMiddleware = require('../middleware/auth');
+const upload = require('../middleware/upload');
 
-router.post('/', authMiddleware, createFundraiser);
+
+router.post('/', authMiddleware, upload.single('image'), createFundraiser);
 
 router.get('/', getFundraisers);
 

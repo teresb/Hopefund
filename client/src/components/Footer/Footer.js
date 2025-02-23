@@ -1,20 +1,8 @@
-import React from 'react'
+import React,{ useContext} from 'react'
 import FooterLinks from './FooterLinks'
+import { AuthContext } from '../../contexts/AuthContext';
 
-const ImportantLinks = [
-    {
-        name: "Home",
-    },
-    {
-        name: "Home",
-    },
-    {
-        name: "Home",
-    },
-    {
-        name: "Home",
-    },
-]
+
 const Links = [
     {
         name: "Home",
@@ -28,15 +16,16 @@ const Links = [
     
 ]
 const Footer = () => {
+      const { auth, logout } = useContext(AuthContext);
+    
   return (
     <div className='text-white rounded-t-3xl bg-gradient-to-r from-violet-950 to to-violet-900'>
       <div className='mx-auto max-w-[1200px] p-4'>
         <div className='grid py-5 md:grid-cols-3'>
-            <div className='px-4 py-8'>
+            <div className='px-4'>
                 <h2 className='mb-3 text-justify text-xl sm:text-left sm:text-3xl'>Hopefund</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Quisquam, voluptatem. Quisquam, voluptatem.
+                At Hopefund, we help you turn dreams into reality. Share your story, rally support, and inspire change together.
                 </p>
                 <div className='flex items-center gap-3 mt-3'>
                     <i className="fa-solid fa-location-arrow"></i>
@@ -48,11 +37,30 @@ const Footer = () => {
                 </div>
             </div>
             <div className='grid grid-cols-2 sm:grid-cols-3 md:pl-10 col-span-2'>
-                <div className='px-4 py-8'>
+                <div className='px-4 py-8 list-none'>
                     <h1 className='mb-3 text-xl font-bold sm:text-left sm:text-xl'>Important Links</h1>
-                    <ul className='flex flex-col gap-3'>
-                        <FooterLinks links={ImportantLinks} />
-                    </ul>
+                    <li>
+                        <a href="/" className="text-md hover:text-white">Donate</a>
+                    </li>
+                    <li>
+                        <a href="/fundraise" className="text-md hover:text-white">Fundraise</a>
+                    </li>
+                    <li>
+                        <a href="#services" className="text-md hover:text-white">About</a>
+                    </li>
+                    {!auth.user ? (
+                        <li>
+                        <a href="/login">
+                        <button className="btn-primary">
+                            Signin
+                        </button>
+                        </a>
+                    </li>
+                    ) : (
+                        <li>
+                        <a href="/" onClick={logout} className="p-3 text-md hover:text-white">Logout</a>
+                        </li>
+                    )}
                 </div>
                 <div className='px-4 py-8'>
                     <h1 className='mb-3 text-xl font-bold sm:text-left sm:text-xl'>Links</h1>

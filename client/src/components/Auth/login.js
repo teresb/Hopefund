@@ -53,7 +53,7 @@ function Login() {
               />
               <i className="fa-solid fa-envelope text-blue-700 absolute right-3 top-2"></i>
             </div>
-            <div className="mb-4 relative">
+            <div className="mb-2 relative">
               <input
                 className="w-full p-2 rounded-lg bg-blue-700 bg-opacity-20 text-blue-700 placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 type="password"
@@ -64,6 +64,11 @@ function Login() {
                 required
               />
               <i className="fa-solid text-blue-700 absolute right-3 top-2">🔒</i>
+            </div>
+
+            <div className='w-full flex items-center mb-2'>
+              <input type="checkbox" className="w-4 h-4 mr-2"/>
+              <p className="text-sm">Remember me</p>
             </div>
 
             <button type="submit" className="w-full py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-500 transition duration-300">

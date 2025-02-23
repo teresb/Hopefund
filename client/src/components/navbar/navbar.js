@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Menu from './Menu'; 
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Navbar() {
+  const { auth, logout } = useContext(AuthContext);
   const [showMenu, setShowMenu] = useState(false);
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") || "light");
@@ -36,24 +38,32 @@ function Navbar() {
             <a href="/" className="p-3 text-md hover:text-white">Donate</a>
           </li>
           <li>
-            <a href="#about" className="p-3 text-md hover:text-white">Fundraise</a>
+            <a href="/search" className="p-3 text-md hover:text-white">Fundraise</a>
           </li>
           <li>
             <a href="#services" className="p-3 text-md hover:text-white">About</a>
           </li>
-          <li>
+          {!auth.user ? (
+            <li>
             <a href="/login">
-              <button className="py-2 px-6 bg-[#1fcbff] text-md text-white rounded-full hover:bg-gray-700 transition">
+              <button className="btn-primary">
                 Signin
               </button>
             </a>
           </li>
+          ) : (
+            <li>
+              <a href="/" onClick={logout} className="p-3 text-md hover:text-white">Logout</a>
+            </li>
+          )}
         </ul>
       </div>
 
       {/* Contact Button */}
       <div className="relative flex gap-3 items-center" >
-        <i href="/search" className="fa-solid fa-magnifying-glass right-2 text-xl text-white"></i>
+        <a href="/search">
+          <i className="fa-solid fa-magnifying-glass right-2 text-xl text-white"></i>
+        </a>
         {theme === "dark" ? (
           <i 
             className="fa-solid fa-sun text-2xl cursor-pointer" 

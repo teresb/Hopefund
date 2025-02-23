@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
+import Home from "./pages/Home";
 import Login from './components/Auth/login'
 import SignUp from './components/Auth/signup'
+import Fundraise from './components/Fundraise/Fundraise'
+import Search from './pages/Search'
+import Admin from './components/Admin/Admin'
+
 
 function App() {
   return (
@@ -10,6 +14,9 @@ function App() {
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/signup" element={<SignUp/>} />
+        <Route exact path="/fundraise" element={<Fundraise/>} />
+        <Route exact path="/search" element={<Search/>} />
+        <Route exact path="/admin" element={<Admin/>} />
       </Routes>
     </Router>
   );

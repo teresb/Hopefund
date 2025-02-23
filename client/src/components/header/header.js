@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <div
       className="w-full lg:h-[700px] bg-cover bg-top bg-no-repeat lg:pb-20"
-      style={{ backgroundImage: `url('../../assets/Header1.jpg')` }}>
+      style={{ backgroundImage: `url('../../assets/Header.jpg')` }}>
         <div className="min-h-[650px] md:min-h-[700px] bg-gradient-to-r from-black/60 to-primary/60 pt-20 pb-20 md:pt-36 ">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 text-white">
@@ -42,16 +42,18 @@ const Hero = () => {
                   Because together, we can make a real difference. Let's build a brighter future for everyone.
                 </motion.p>
                 <div className="space-x-4">
-                  <motion.button
+                  <motion.a
+                    href="/fundraise"
                     variants={FadeUp(0.6)}
                     initial="initial"
                     animate="animate" 
-                    className="btn-primary">Fundraise</motion.button>
-                  <motion.button
+                    className="btn-primary">Fundraise</motion.a>
+                  <motion.a
+                    href="/fundraisers"
                     variants={FadeUp(0.8)}
                     initial="initial"
                     animate="animate" 
-                    className="btn-outline">Donate</motion.button>
+                    className="btn-outline">Donate</motion.a>
                 </div>
               </div>
 
@@ -64,26 +66,26 @@ const Hero = () => {
                 {/* Top Images */}
                 <div className="flex gap-2">
                   <img
-                    src="/assets/Header2.jpg"
+                    src="/assets/Header1.jpg"
                     alt="Student"
                     className="w-52 h-56 rounded-tr-[100px] rounded-bl-[100px] object-cover"
                   />
                   <img
                     src="/assets/Header2.jpg"
                     alt="Student"
-                    className="w-52 h-56 rounded-tl-[100px] rounded-br-[100px] object-cover"
+                    className="w-52 h-56 rounded-tl-[100px] rounded-br-[100px] object-cover border-3 border-violet-900"
                   />
                 </div>
 
                 {/* Bottom Images */}
                 <div className="flex gap-2 mt-2">
                   <img
-                    src="/assets/Header2.jpg"
+                    src="/assets/Header3.jpg"
                     alt="Student"
-                    className="w-52 h-56 rounded-br-[100px] rounded-tl-[100px] object-cover"
+                    className="w-52 h-56 rounded-br-[100px] rounded-tl-[100px] object-cover border-3 border-violet-900"
                   />
                   <img
-                    src="/assets/Header2.jpg"
+                    src="/assets/Header4.jpg"
                     alt="Student"
                     className="w-52 h-56 rounded-bl-[100px] rounded-tr-[100px] object-cover"
                   />

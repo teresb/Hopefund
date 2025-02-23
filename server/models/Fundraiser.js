@@ -9,7 +9,7 @@ const fundraiserSchema = new mongoose.Schema({
   deadline: { type: Date, required: true },
   creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   status: { type: String, enum: ['pending', 'approved', 'completed'], default: 'pending' },
-  media: [{ type: String }],
+  image: { type: String },
 }, 
 { timestamps: true });
 

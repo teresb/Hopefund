@@ -30,7 +30,7 @@ const Vision = () => {
             <h1 className='text-xl font-semibold'>Our Vision</h1>
             <p>At Hopefund, we see generosity transforming lives. Your donation creates meaningful change and inspires hope for a brighter future.
             </p>
-            <a href='/' className='inline-block hover:text-primary border-b hover-yellow-500'>Learn More</a>
+            <a href='/about' className='inline-block hover:text-primary border-b hover-yellow-500'>Learn More</a>
         </motion.div>
         <motion.div 
             variants={fadeAnimation(0.2)}
@@ -40,7 +40,7 @@ const Vision = () => {
             <h1 className='text-xl font-semibold'>Our Vision</h1>
             <p>At Hopefund, we help you turn dreams into reality. Share your story, rally support, and inspire change together.
             </p>
-            <a href='/' className='inline-block hover:text-primary border-b hover-yellow-500'>Learn More</a>
+            <a href='/about' className='inline-block hover:text-primary border-b hover-yellow-500'>Learn More</a>
         </motion.div>
       </div>
     </div>

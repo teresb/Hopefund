@@ -4,12 +4,22 @@ const Fundraiser = require('../models/Fundraiser');
 exports.createFundraiser = async (req, res) => {
   const { title, description, goal, deadline, media } = req.body;
   try {
+    if (!req.user || !req.user.userId) {
+      return res.status(401).json({ message: 'User not authenticated' });
+    }
+    
+    // Build the image URL if a file was uploaded
+    let imageUrl = '';
+    if (req.file) {
+      imageUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
+    }
+    
     const fundraiser = new Fundraiser({
       title,
       description,
       goal,
       deadline,
-      media,
+      image: imageUrl,
       creator: req.user.userId,
     });
     await fundraiser.save();
@@ -33,14 +43,17 @@ exports.createFundraiser = async (req, res) => {
 exports.getFundraisers = async (req, res) => {
   const { search } = req.query;
   try {
+    const baseQuery = { status: 'approved' };
+
     const query = search
       ? {
+          ...baseQuery,
           $or: [
             { title: { $regex: search, $options: 'i' } },
             { description: { $regex: search, $options: 'i' } },
           ],
         }
-      : {};
+      : baseQuery;
 
     const fundraisers = await Fundraiser.find(query).populate('creator', 'name');
     res.status(200).json(fundraisers);
