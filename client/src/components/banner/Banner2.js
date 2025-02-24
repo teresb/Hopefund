@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../contexts/AuthContext';
+
 
 const Banner2 = () => {
+  const navigate = useNavigate();
+  const { auth } = useContext(AuthContext);
+
+  
+  const handleFundraiseClick = () => {
+    if (auth.user) {
+      navigate("/fundraise"); // If logged in, go to fundraise page
+    } else {
+      navigate("/login"); // If not logged in, redirect to login
+    }
+  };
+
   return (
     <div className='bg-slate-100 dark:bg-slate-900 dark:text-white'>
       <div className='container md:h-[500px] flex items-center justify-center py-10'>
@@ -19,7 +34,7 @@ const Banner2 = () => {
                     <li className='font-medium'>Every contribution counts—let's make an impact together!
                     </li>
                 </ul>
-                <button className='btn-primary'>Fundraise</button>
+                <button onClick={handleFundraiseClick}className='btn-primary'>Fundraise</button>
             </div>
             <div>
                 <img

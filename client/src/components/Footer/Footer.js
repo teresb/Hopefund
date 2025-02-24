@@ -23,6 +23,7 @@ const Footer = () => {
       <div className='mx-auto max-w-[1200px] p-4'>
         <div className='grid py-5 md:grid-cols-3'>
             <div className='px-4'>
+                <i class="fa-solid fa-handshake-angle text-8xl"></i>
                 <h2 className='mb-3 text-justify text-xl sm:text-left sm:text-3xl'>Hopefund</h2>
                 <p>
                 At Hopefund, we help you turn dreams into reality. Share your story, rally support, and inspire change together.
@@ -37,7 +38,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='grid grid-cols-2 sm:grid-cols-3 md:pl-10 col-span-2'>
-                <div className='px-4 py-8 list-none'>
+                <div className='px-4 py-8 list-none space-y-2'>
                     <h1 className='mb-3 text-xl font-bold sm:text-left sm:text-xl'>Important Links</h1>
                     <li>
                         <a href="/" className="text-md hover:text-white">Donate</a>
@@ -58,7 +59,7 @@ const Footer = () => {
                     </li>
                     ) : (
                         <li>
-                        <a href="/" onClick={logout} className="p-3 text-md hover:text-white">Logout</a>
+                        <a href="/" onClick={logout} className="text-md hover:text-white">Logout</a>
                         </li>
                     )}
                 </div>

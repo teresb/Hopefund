@@ -19,6 +19,9 @@ function Home(){
             <Banner/>
             <Banner2/>
             <Video/>
+            <h1 className="ml-20 mt-24 border-l-8 pl-2 text-3xl font-bold">
+               Discover some fundraisers...
+            </h1>
             <Blogs/>
             <Footer/>
         </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
 const Hero = () => {
+
   const FadeUp =(delay) => {
     return {
       initial: {
@@ -47,9 +47,9 @@ const Hero = () => {
                     variants={FadeUp(0.6)}
                     initial="initial"
                     animate="animate" 
-                    className="btn-primary">Fundraise</motion.a>
+                    className="btn-primary cursor-pointer">Fundraise</motion.a>
                   <motion.a
-                    href="/fundraisers"
+                    href="/search"
                     variants={FadeUp(0.8)}
                     initial="initial"
                     animate="animate" 

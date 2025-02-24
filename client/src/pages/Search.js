@@ -1,7 +1,7 @@
 // src/pages/Search.js
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/navbar/navbar';
-import Fundraisers from '../components/Fundraisers/Fundraisers';
+import Fundraisers from '../components/Fundraise/Fundraisers';
 import Footer from '../components/Footer/Footer';
 import SearchBar from '../components/searchbar/searchbar';
 import axios from '../api/axios';
@@ -46,13 +46,13 @@ function Search() {
       <div className='grid grid-cols-2 gap-4 mt-32 mx-10 mb-32'>
          {extraFundraiser && (
          <div className="">
-            <Fundraisers fundraisers={[extraFundraiser]} imageClass="rounded-lg shadow-lg w-full h-[480px] object-cover" />
+            <Fundraisers fundraisers={[extraFundraiser]} imageClass="rounded-lg shadow-lg w-full h-[500px] object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" />
          </div>
          )}
          {/* Display 5 Featured Fundraisers */}
          <div className="col-span-1 grid grid-cols-2 gap-4">
            {randomFour.map((fundraiser) => (
-             <Fundraisers key={fundraiser._id} fundraisers={[fundraiser]} imageClass="rounded-lg shadow-lg w-full h-[150px] object-cover"/>
+             <Fundraisers key={fundraiser._id} fundraisers={[fundraiser]} imageClass="rounded-lg shadow-lg w-full h-[150px] object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110"/>
            ))}
          </div>
       </div>

@@ -18,7 +18,7 @@ exports.register = async (req, res) => {
       name, 
       email, 
       password: hashedPassword, 
-      role: 'user'
+      role: 'admin'
     });
 
     await user.save();
@@ -53,7 +53,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const payload = { userId: user._id };
+    const payload = { userId: user._id, role: user.role };
     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' });
 
     res.status(200).json({ message: 'Logged in successfully', token, 

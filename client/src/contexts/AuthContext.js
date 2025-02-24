@@ -22,9 +22,17 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setAuth({ token: null, user: null });
-  };
+    window.location.replace("/");
 
-  // Optionally, add an effect to check for token expiration or validity
+    // Clear history to disable back button
+    setTimeout(() => {
+      window.history.pushState(null, null, window.location.href);
+      window.onpopstate = () => {
+        window.history.pushState(null, null, window.location.href);
+      };
+    }, 0);
+  
+  };
 
   return (
     <AuthContext.Provider value={{ auth, login, logout }}>

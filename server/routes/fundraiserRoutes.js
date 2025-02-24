@@ -6,6 +6,7 @@ const {
   getFundraisers,
   updateFundraiser,
   deleteFundraiser,
+  getFundraiserById,
 } = require('../controllers/fundraiser');
 
 const authMiddleware = require('../middleware/auth');
@@ -15,6 +16,8 @@ const upload = require('../middleware/upload');
 router.post('/', authMiddleware, upload.single('image'), createFundraiser);
 
 router.get('/', getFundraisers);
+
+router.get('/:id', getFundraiserById);
 
 router.put('/:id', authMiddleware, updateFundraiser);
 

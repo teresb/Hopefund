@@ -1,16 +1,15 @@
-// client/src/components/Admin/AdminPanel.js
-
+// src/components/Admin/AdminPanel.js
 import React, { useState, useEffect } from 'react';
 import axios from '../../api/axios';
 import { toast } from 'react-toastify';
+import Fundraisers from '../Fundraise/Fundraisers';
 
 const AdminPanel = () => {
   const [pendingFundraisers, setPendingFundraisers] = useState([]);
 
-  // Fetch pending fundraisers from the backend
+  // Fetch pending fundraisers (should return those with status "pending")
   const fetchPendingFundraisers = async () => {
     try {
-      // This endpoint should return fundraisers with status "pending"
       const res = await axios.get('/admin/fundraisers');
       setPendingFundraisers(res.data);
     } catch (error) {
@@ -23,40 +22,19 @@ const AdminPanel = () => {
     fetchPendingFundraisers();
   }, []);
 
-  // Function to approve a fundraiser
-  const approveFundraiser = async (id) => {
-    try {
-      await axios.put(`/admin/fundraisers/${id}/approve`);
-      toast.success('Fundraiser approved!');
-      // Remove the approved fundraiser from the list
-      setPendingFundraisers((prev) => prev.filter((f) => f._id !== id));
-    } catch (error) {
-      console.error('Error approving fundraiser:', error);
-      toast.error('Error approving fundraiser.');
-    }
-  };
 
   return (
-    <div className="p-4">
+    <div className="pt-10 px-20">
       <h2 className="text-2xl font-bold mb-4">Admin Panel - Pending Fundraisers</h2>
-      {pendingFundraisers.length === 0 ? (
-        <p>No pending fundraisers.</p>
-      ) : (
-        <ul>
-          {pendingFundraisers.map((f) => (
-            <li key={f._id} className="p-4 border-b">
-              <h3 className="font-bold text-xl">{f.title}</h3>
-              <p>{f.description}</p>
-              <button
-                onClick={() => approveFundraiser(f._id)}
-                className="mt-2 px-4 py-2 bg-green-500 text-white rounded"
-              >
-                Approve
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+      {pendingFundraisers.map((fundraiser) => (
+        <Fundraisers
+          fundraisers={[fundraiser]} 
+          imageClass="mx-auto h-[250px] w-full object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" 
+          showProgressBar={false}
+        />
+      ))}
+      </div>
     </div>
   );
 };

@@ -19,12 +19,18 @@ function Login() {
     e.preventDefault();
     try {
       const res = await axios.post('/auth/login', formData);
-      // On successful login, update auth context
-      login(res.data.token, res.data.user);
-      navigate('/'); // Redirect to home or dashboard
-    } catch (error) {
-      console.error(error);
-      alert('Error logging in');
+      // res.data should include the token and user details (including role)
+      const { token, user } = res.data;
+      login(token, user);
+      // If user role is admin, redirect to /admin, else go to home or dashboard
+      if (user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/'); // or another route for non-admins
+      }
+    }  catch (error) {
+      console.error("Login error:", error);
+      alert("Login failed. Please check your credentials and try again.");
     }
   };
 

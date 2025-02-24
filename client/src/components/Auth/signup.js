@@ -37,8 +37,6 @@ const Signup = () => {
           style={{ backgroundImage: `url('../../assets/LoginImage.jpg')` }}
         ></div>
 
-        <div className="absolute"></div>
-
         <div className="relative z-10 bg-blue-500 bg-opacity-40 rounded-lg shadow-xl p-4 max-w-xs w-full backdrop-blur-md border border-black">
           <h2 className="text-center text-2xl font-bold text-white mb-4">SignUp</h2>
           <form onSubmit={handleSubmit}>
