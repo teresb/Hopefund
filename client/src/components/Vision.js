@@ -20,7 +20,7 @@ const fadeAnimation = (delay) => {
 
 const Vision = () => {
   return (
-    <div className='container my-16 bg-white dark:bg-gray-900 dark:texxt-white'>
+    <div className='container mb-16 bg-white dark:bg-gray-900 dark:texxt-white'>
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-10'>
         <motion.div
             variants={fadeAnimation(0.2)}

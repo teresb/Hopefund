@@ -1,20 +1,7 @@
 import React,{ useContext} from 'react'
-import FooterLinks from './FooterLinks'
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 
-const Links = [
-    {
-        name: "Home",
-    },
-    {
-        name: "Home",
-    },
-    {
-        name: "Home",
-    },
-    
-]
 const Footer = () => {
       const { auth, logout } = useContext(AuthContext);
     
@@ -62,12 +49,6 @@ const Footer = () => {
                         <a href="/" onClick={logout} className="text-md hover:text-white">Logout</a>
                         </li>
                     )}
-                </div>
-                <div className='px-4 py-8'>
-                    <h1 className='mb-3 text-xl font-bold sm:text-left sm:text-xl'>Links</h1>
-                    <ul className='flex flex-col gap-3'>
-                        <FooterLinks links={Links} />
-                    </ul>
                 </div>
                 <div className='px-4 py-8'>
                     <h1 className='mb-3 text-xl font-bold sm:text-left sm:text-xl'>Social Links</h1>

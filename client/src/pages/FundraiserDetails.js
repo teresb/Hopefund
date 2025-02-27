@@ -1,12 +1,12 @@
 // src/pages/FundraiserDetail.js
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import axios from "../../api/axios";
-import Navbar from "../navbar/navbar";
-import Footer from "../Footer/Footer";
-import ProgressBar from "../Progressbar/Progressbar";
-import Blogs from "../Blogs/Blogs";
-import { AuthContext } from "../../contexts/AuthContext";
+import axios from "../api/axios";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/Footer";
+import ProgressBar from "../components/Progressbar";
+import Blogs from "../components/Blogs/Blogs";
+import { AuthContext } from "../contexts/AuthContext";
 
 const FundraiserDetail = () => {
   const { id } = useParams();

@@ -57,8 +57,9 @@ const CreateFundraiser = () => {
   return (
     <div className="w-full h-screen bg-violet-900 flex gap-3 items-center">
         <div className="text-center px-5">
-          <h1 className="text-4xl text-white font-bold my-4">Turn your ideas into reality</h1>
-          <p className="text-xl text-white font-normal">Start for free and get attractive offers from the community</p>
+          <i class="fa-solid fa-handshake-angle text-white text-9xl"></i>
+          <h1 className="text-4xl text-white font-bold my-4">Turn your dreams into reality</h1>
+          <p className="text-xl text-white font-normal">Create a fundraiser free and get support from the community</p>
         </div>
         <div className="w-3/5 p-20 bg-white rounded-tl-3xl rounded-bl-3xl ">
           <h2 className="text-xl font-bold mb-4">Create Fundraiser</h2>
@@ -87,7 +88,7 @@ const CreateFundraiser = () => {
               className="w-full p-2 border border-gray-300 rounded mb-4"
               required />
             <input
-              type="datetime-local"
+              type="date"
               name="deadline"
               placeholder="Deadline"
               value={formData.deadline}
