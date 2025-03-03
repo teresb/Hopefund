@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../api/axios';
 import { toast } from 'react-toastify';
-import Fundraisers from '../Fundraise/Fundraisers';
+import Fundraisers from '../Campaigns';
 
 const AdminPanel = () => {
   const [pendingFundraisers, setPendingFundraisers] = useState([]);

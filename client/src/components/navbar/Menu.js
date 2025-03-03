@@ -11,6 +11,7 @@ const Menu = ({ auth, logout, showAllLinks = true }) => {
         <i className="fa-solid fa-circle-user text-gray-800 text-4xl"></i>
         <div>
           <h1 className='text-gray-800'>{auth.user.name}</h1>
+          <h1 className='text-gray-800'>{auth.user.id}</h1>
           <h1 className='text-gray-400'>{auth.user.email}</h1>
         </div>
       </div>
@@ -20,13 +21,13 @@ const Menu = ({ auth, logout, showAllLinks = true }) => {
         {auth.user && (
           <>
             <li>
-              <a href="/" className="text-gray-800 text-md hover:text-white">My fundraisers</a>
+              <a href="/mycampaigns" className="text-gray-800 text-md hover:text-white">My fundraisers</a>
             </li>
             <li>
               <a href="#about" className="text-gray-800 text-md hover:text-white">My Impact</a>
             </li>
             <li>
-              <a href="#about" className="text-gray-800 text-md hover:text-white">Pending Campaigns</a>
+              <a href="/pendingcampaigns" className="text-gray-800 text-md hover:text-white">Pending Campaigns</a>
             </li>
           </>
         )}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import Menu from './Menu';
 
 function Navbar() {

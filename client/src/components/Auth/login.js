@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from '../../api/axios';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import {useNavigate, Link} from "react-router-dom";
 
 function Login() {

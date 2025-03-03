@@ -1,8 +1,12 @@
 // client/src/contexts/AuthContext.js
 
-import React, { createContext, useState} from 'react';
+import React, { createContext, useContext, useState} from 'react';
 
 export const AuthContext = createContext();
+
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
 export const AuthProvider = ({ children }) => {
   // Get token and user info from localStorage if available

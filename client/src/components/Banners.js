@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 
 const Banner = () => {
   const navigate = useNavigate();

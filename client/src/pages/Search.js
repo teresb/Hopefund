@@ -1,7 +1,7 @@
 // src/pages/Search.js
 import React, { useState } from 'react';
 import Navbar from '../components/navbar/Navbar';
-import Fundraisers from '../components/Fundraise/Fundraisers';
+import Campaigns from '../components/Campaigns';
 import Footer from '../components/Footer';
 import SearchBar from '../components/Searchbar';
 
@@ -18,7 +18,7 @@ function Search() {
         <h1 className="border-l-8 pl-2 text-3xl font-bold">
             Trending
         </h1>
-        <Fundraisers count={9} imageClass="h-[250px] w-full object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" />
+        <Campaigns count={9} imageClass="h-[250px] w-full object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" />
       </div>
       <Footer />
     </div>

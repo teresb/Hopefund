@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const User = require('../models/User');
+const User = require('./User');
 
-const fundraiserSchema = new mongoose.Schema({
+const campaignSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   goal: { type: Number, required: true },
@@ -13,4 +13,4 @@ const fundraiserSchema = new mongoose.Schema({
 }, 
 { timestamps: true });
 
-module.exports = mongoose.model('Fundraiser', fundraiserSchema);
+module.exports = mongoose.model('campaign', campaignSchema);

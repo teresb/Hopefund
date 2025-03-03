@@ -6,7 +6,7 @@ import Vision from '../components/Vision';
 import Banners from '../components/Banners';
 import Video from '../components/Video';
 import Footer from '../components/Footer';
-import Fundraisers from '../components/Fundraise/Fundraisers';
+import Fundraisers from '../components/Campaigns';
 
 function Home() {
     return (
