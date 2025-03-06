@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from '../../api/axios';
 import { AuthContext } from '../../context/AuthContext';
-import {useNavigate, Link} from "react-router-dom";
+import {useNavigate, useLocation, Link} from "react-router-dom";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ function Login() {
   });
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,9 +25,10 @@ function Login() {
       login(token, user);
       // If user role is admin, redirect to /admin, else go to home or dashboard
       if (user.role === 'admin') {
-        navigate('/admin');
+        navigate('/adminpanel');
       } else {
-        navigate('/'); // or another route for non-admins
+        const from = location.state?.from || '/';
+        navigate(from);
       }
     }  catch (error) {
       console.error("Login error:", error);

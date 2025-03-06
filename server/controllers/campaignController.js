@@ -1,4 +1,5 @@
 const Campaign = require('../models/Campaign');
+const { sendApprovalEmail } = require('../controllers/emailService');
 
 // Create a campaign
 exports.createCampaign = async (req, res) => {
@@ -113,10 +114,7 @@ exports.approveCampaign = async (req, res) => {
     campaign.status = 'approved';
     await campaign.save();
 
-    // Optionally, emit a Socket.io event for real-time updates
-    if (req.app.get('io')) {
-      req.app.get('io').emit('campaignApproved', campaign);
-    }
+    await sendApprovalEmail(campaign._id);
 
     res.status(200).json({ message: 'Campaign approved successfully.', campaign });
   } catch (error) {

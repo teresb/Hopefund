@@ -7,7 +7,7 @@ const Video = () => {
         <div className='grid grid-cols-1 items-center md:grid-cols-2 gap-4 md:gap-8'>
             <div>
                 <iframe
-                    src="https://www.youtube.com/embed/4sc6BhgS_Co?si=lVmlzfERPssJHOdd"
+                    src="https://www.youtube.com/embed/TqhNILVX8IE?si=59q7CGj0g6mmGeOF"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -27,14 +27,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
     setAuth({ token: null, user: null });
     window.location.replace("/");
-
-    // Clear history to disable back button
-    setTimeout(() => {
-      window.history.pushState(null, null, window.location.href);
-      window.onpopstate = () => {
-        window.history.pushState(null, null, window.location.href);
-      };
-    }, 0);
   
   };
 

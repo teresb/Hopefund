@@ -11,7 +11,7 @@ const Campaigns = ({ count, imageClass, showProgressBar = true, search = '', cre
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const res = await axios.get(`/campaigns?search=${search}&creatorId=${creatorId}`);
+        const res = await axios.get(`/campaigns?search=${search}`);
         let data = res.data;
         if (count && data.length > count) {
           data = data.sort(() => 0.5 - Math.random()).slice(0, count);

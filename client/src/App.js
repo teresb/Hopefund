@@ -2,15 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
 import Home from "./pages/Home";
-import Login from './components/Auth/login'
-import SignUp from './components/Auth/signup'
+import Login from './pages/Auth/login'
+import SignUp from './pages/Auth/signup'
+import About from './pages/About'
 import Fundraise from './pages/Fundraise'
+import Donate from './pages/Donate'
 import Search from './pages/Search'
-import Admin from './components/Admin/Admin'
+import AdminPanel from './pages/AdminPanel'
 import CampaignDetail from './pages/CampaignDetails'
 import MyCampaigns from './pages/MyCampaigns'
 import Campaigns from './components/Campaigns'
 import PendingCampaigns from './pages/pendingCampaigns'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
 
@@ -21,9 +24,15 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/signup" element={<SignUp/>} />
+          <Route exact path="/about" element={<About/>} />
           <Route exact path="/fundraise" element={<Fundraise/>} />
+          <Route exact path="/donate" element={<Donate/>} />
           <Route exact path="/search" element={<Search/>} />
-          <Route exact path="/admin" element={<Admin/>} />
+          <Route
+            exact
+            path="/adminpanel"
+            element={<ProtectedRoute element={AdminPanel} requiredRole="admin" />}
+          />
           <Route exact path="/campaigns/:id" element={<CampaignDetail/>} />
           <Route exact path="/mycampaigns" element={<MyCampaigns/>} />
           <Route exact path="/pendingcampaigns" element={<PendingCampaigns/>} />

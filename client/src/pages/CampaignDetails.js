@@ -5,7 +5,6 @@ import axios from "../api/axios";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer";
 import ProgressBar from "../components/Progressbar";
-import Fundraisers from "../components/Campaigns";
 
 const CampaignDetail = () => {
   const { id } = useParams();
@@ -92,7 +91,6 @@ const CampaignDetail = () => {
             })}
           </p>
           
-            {/* For non-admin users, show progress bar and raised amount */}
             <div className="flex space-x-4 my-4">
               <ProgressBar
                 raised={campaign.raised}
@@ -116,14 +114,6 @@ const CampaignDetail = () => {
               {copied ? "Link Copied!" : "Share Link"}
             </button>
           </div>
-        </div>
-      </div>
-      <div className='dark:bg-gray-900 dark:text-white'>
-        <div className="container py-16 space-y-5">
-            <h1 className="border-l-8 pl-2 text-3xl font-bold">
-                Discover some fundraisers...
-            </h1>
-            <Fundraisers count={3} imageClass="h-[250px] w-full object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" />
         </div>
       </div>
       <Footer />

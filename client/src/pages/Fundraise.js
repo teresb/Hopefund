@@ -42,7 +42,7 @@ const Fundraise = () => {
         data.append('image', imageFile);
         }
 
-      await axios.post('/fundraisers', data , {
+      await axios.post('/campaigns', data , {
         headers: {
             'Content-Type': 'multipart/form-data',
         },

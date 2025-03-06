@@ -49,7 +49,7 @@ const Hero = () => {
                     animate="animate" 
                     className="btn-primary cursor-pointer">Fundraise</motion.a>
                   <motion.a
-                    href="/search"
+                    href="/donate"
                     variants={FadeUp(0.8)}
                     initial="initial"
                     animate="animate" 

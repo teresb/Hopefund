@@ -30,7 +30,7 @@ router.get('/creator/:creatorId/pending', getPendingCampaignsByCreator); // Add 
 
 router.put('/:id', authMiddleware, updateCampaign);
 
-router.put('/approve/:id', authMiddleware, approveCampaign);
+router.put('/:id/approve', approveCampaign);
 
 router.delete('/:id', authMiddleware, deleteCampaign);
 
