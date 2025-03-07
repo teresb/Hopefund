@@ -26,7 +26,7 @@ exports.sendApprovalEmail = async (campaignId) => {
       from: process.env.EMAIL_USER,
       to: userEmail,
       subject: 'Campaign Approval',
-      text: `Your campaign "${campaignTitle}" has been approved!
+      body: `Your campaign "${campaignTitle}" has been approved!
       Login to check the status`,
     };
 

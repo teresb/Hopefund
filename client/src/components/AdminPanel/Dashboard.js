@@ -6,12 +6,14 @@ import Modal from './Modal';
 const Dashboard = ({ sidebarToggle, setSidebarToggle, activePanel }) => {
   const [pendingCampaigns, setPendingCampaigns] = useState([]);
   const [approvedCampaigns, setApprovedCampaigns] = useState([]);
+  const [donations, setDonations] = useState([]);
   const [users, setUsers] = useState([]);
   
   const [selectedCampaign, setSelectedCampaign] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const totalPendingCampaigns = pendingCampaigns.length;
   const totalApprovedCampaigns = approvedCampaigns.length;
+  const totalDonations = donations.length;
   const totalUsers = users.length;
 
   useEffect(() => {
@@ -42,9 +44,19 @@ const Dashboard = ({ sidebarToggle, setSidebarToggle, activePanel }) => {
       }
     };
 
+    const fetchDonations = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/donations');
+        setDonations(response.data);
+      } catch (error) {
+        console.error('Error fetching donations:', error);
+      }
+    };
+
     fetchPendingCampaigns();
     fetchApprovedCampaigns();
     fetchUsers();
+    fetchDonations();
   }, []);
 
   const handleClick = (campaign) => {
@@ -103,6 +115,13 @@ const Dashboard = ({ sidebarToggle, setSidebarToggle, activePanel }) => {
               </div>
             </div>
             <div className="flex bg-blue-200 gap-4 p-8 rounded-lg shadow-md items-center">
+              <i className="fa-solid fa-hand-holding-dollar text-9xl"></i>
+              <div className='font-semibold'>
+                <p className="text-5xl">{totalDonations}</p>
+                <h2 className="text-3xl mb-2">Donations</h2>
+              </div>
+            </div>
+            <div className="flex bg-blue-200 gap-4 p-8 rounded-lg shadow-md items-center">
               <i className="fa-solid fa-users text-9xl"></i>
               <div className='font-semibold'>
                 <p className="text-5xl">{totalUsers}</p>
@@ -113,6 +132,30 @@ const Dashboard = ({ sidebarToggle, setSidebarToggle, activePanel }) => {
         )}
         {activePanel === "PendingCampaigns" && renderCampaigns(pendingCampaigns)}
         {activePanel === "ApprovedCampaigns" && renderCampaigns(approvedCampaigns)}
+        {activePanel === "Donations" && (
+          <div className="mx-20 py-6">
+              <h2 className="text-xl font-bold">Donations</h2>
+              <table className="w-full bg-white rounded shadow mt-4">
+                <thead className="bg-gray-200">
+                  <tr>
+                    <th className="p-2">Campaign</th>
+                    <th className="p-2">Donor</th>
+                    <th className="p-2">Amount</th>
+                    <th className="p-2">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {donations.map(donation => (
+                    <tr key={donation.id} className="border-t">
+                      <td className="p-2">{donation.campaign.title}</td>
+                      <td className="p-2">{donation.donor ? donation.donor.email : 'Anonymous'}</td>
+                      <td className="p-2">${donation.amount}</td>
+                      <td className="p-2">{new Date(donation.date).toLocaleDateString()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>)}
         {activePanel === "Users" && (
           <div className="mx-20 py-6">
               <h2 className="text-xl font-bold">Users</h2>

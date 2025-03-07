@@ -23,7 +23,7 @@ const Menu = ({ auth, logout, showAllLinks = true }) => {
               <a href="/mycampaigns" className="text-gray-800 text-md hover:text-white">My fundraisers</a>
             </li>
             <li>
-              <a href="#about" className="text-gray-800 text-md hover:text-white">My Impact</a>
+              <a href="/myimpact" className="text-gray-800 text-md hover:text-white">My Impact</a>
             </li>
             <li>
               <a href="/pendingcampaigns" className="text-gray-800 text-md hover:text-white">Pending Campaigns</a>

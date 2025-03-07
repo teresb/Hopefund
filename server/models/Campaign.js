@@ -13,4 +13,4 @@ const campaignSchema = new mongoose.Schema({
 }, 
 { timestamps: true });
 
-module.exports = mongoose.model('campaign', campaignSchema);
+module.exports = mongoose.model('Campaign', campaignSchema);

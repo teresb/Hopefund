@@ -33,6 +33,13 @@ const Sidebar = ({ sidebarToggle, setActivePanel, activePanel }) => {
           Approved Campaigns
         </button>
         <button
+          className={`w-full text-left px-3 py-2 rounded ${activePanel === "Donations" ? "bg-gray-700" : "hover:bg-gray-700"}`}
+          onClick={() => setActivePanel("Donations")}
+        >
+          <i className="fa-solid fa-hand-holding-dollar inline-block w-6 h-6 mr-2 mt-2"></i>
+          Donations
+        </button>
+        <button
           className={`w-full text-left px-3 py-2 rounded ${activePanel === "Users" ? "bg-gray-700" : "hover:bg-gray-700"}`}
           onClick={() => setActivePanel("Users")}
         >

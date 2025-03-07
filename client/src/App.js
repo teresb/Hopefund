@@ -11,6 +11,7 @@ import Search from './pages/Search'
 import AdminPanel from './pages/AdminPanel'
 import CampaignDetail from './pages/CampaignDetails'
 import MyCampaigns from './pages/MyCampaigns'
+import MyImpact from './pages/MyImpact'
 import Campaigns from './components/Campaigns'
 import PendingCampaigns from './pages/pendingCampaigns'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -35,6 +36,7 @@ function App() {
           />
           <Route exact path="/campaigns/:id" element={<CampaignDetail/>} />
           <Route exact path="/mycampaigns" element={<MyCampaigns/>} />
+          <Route exact path="/myimpact" element={<MyImpact/>} />
           <Route exact path="/pendingcampaigns" element={<PendingCampaigns/>} />
           <Route exact path="/campaigns" element={<Campaigns/>} />
         </Routes>

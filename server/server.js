@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const campaignRoutes = require('./routes/campaignRoutes');
 const userRoutes = require('./routes/userRoutes');
+const donationRoutes = require('./routes/donationRoutes');
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/donations', donationRoutes);
 app.use('/uploads', express.static('uploads'));
 
 io.on('connection', (socket) => {

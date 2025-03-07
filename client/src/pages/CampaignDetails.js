@@ -5,6 +5,7 @@ import axios from "../api/axios";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer";
 import ProgressBar from "../components/Progressbar";
+import DonationModal from "../components/donationModal";
 
 const CampaignDetail = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const CampaignDetail = () => {
   const [shareLink, setShareLink] = useState("");
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Fetch campaign details based on the id from URL
@@ -29,7 +31,6 @@ const CampaignDetail = () => {
     fetchCampaign();
   }, [id]);
 
-
   const handleCopyShareLink = () => {
     navigator.clipboard
       .writeText(shareLink)
@@ -38,6 +39,14 @@ const CampaignDetail = () => {
         setTimeout(() => setCopied(false), 2000);
       })
       .catch((err) => console.error("Failed to copy link:", err));
+  };
+
+  const handleDonateClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   if (error) {
@@ -107,7 +116,7 @@ const CampaignDetail = () => {
 
           {/* Buttons Section */}
           <div className="flex space-x-4 mb-4">
-            <button className="btn-primary">
+            <button onClick={handleDonateClick} className="btn-primary">
               Donate Now
             </button>
             <button onClick={handleCopyShareLink} className="btn-primary">
@@ -117,6 +126,7 @@ const CampaignDetail = () => {
         </div>
       </div>
       <Footer />
+      <DonationModal isOpen={isModalOpen} onClose={handleCloseModal} campaign={campaign} />
     </div>
   );
 };
