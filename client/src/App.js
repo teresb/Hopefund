@@ -15,6 +15,7 @@ import MyImpact from './pages/MyImpact'
 import Campaigns from './components/Campaigns'
 import PendingCampaigns from './pages/pendingCampaigns'
 import ProtectedRoute from './components/ProtectedRoute'
+import Payment from './pages/Payment'
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/myimpact" element={<MyImpact/>} />
           <Route exact path="/pendingcampaigns" element={<PendingCampaigns/>} />
           <Route exact path="/campaigns" element={<Campaigns/>} />
+          <Route exact path="/payment" element={<Payment/>} />
         </Routes>
       </Router>
     </AuthProvider>

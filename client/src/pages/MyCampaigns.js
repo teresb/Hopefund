@@ -1,12 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 import ProgressBar from '../components/Progressbar';
+import Navbar from '../components/navbar/navbar';
+import Footer from '../components/Footer';
 
 
 const MyCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
   const { auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  
+
   useEffect(() => {
     const fetchCampaigns = async () => {
       if (!auth || !auth.user) return;
@@ -28,12 +34,24 @@ const MyCampaigns = () => {
     fetchCampaigns();
   }, [auth]);
 
+  const handleFundraiseClick = () => {
+    if (auth.user) {
+      navigate("/fundraise"); // If logged in, go to fundraise page
+    } else {
+      navigate("/login", { state: { from: "/fundraise" } }); // If not logged in, redirect to login with intended destination
+    }
+  };
+
   return (
     <div>
-      <h1>My Campaigns</h1>
-      {campaigns.length === 0 ? (
-        <p>No campaigns found.</p>
-      ) : (
+      <Navbar/>
+      <div className='mt-32 w-100 text-center space-y-4'>
+            <h1 className='text-4xl text-center font-semibold'>Track the Progress of all your campaigns</h1>
+            <p className='text-xl'>Every contribution counts! Keep sharing your campaigns and make a bigger impact.</p>
+            <button
+            onClick={handleFundraiseClick}
+            className="btn-primary cursor-pointer">Fundraise</button>
+         </div>
         <div className="container py-32 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       {campaigns.map((campaign) => (
@@ -70,7 +88,7 @@ const MyCampaigns = () => {
       ))}
     </div>
         </div>
-      )}
+        <Footer/>
     </div>
   );
 };

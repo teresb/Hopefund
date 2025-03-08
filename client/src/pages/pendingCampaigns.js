@@ -2,6 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 import ProgressBar from '../components/Progressbar';
+import Navbar from '../components/navbar/navbar';
+import Footer from '../components/Footer';
+
 
 
 const PendingCampaigns = () => {
@@ -30,9 +33,9 @@ const PendingCampaigns = () => {
 
   return (
     <div>
-      <h1>My Campaigns</h1>
+      <Navbar/>
       {campaigns.length === 0 ? (
-        <p>No campaigns found.</p>
+        <p className='mt-32 w-102 space-y-4 pb-20 text-4xl text-center font-semibold'>You have no pending campaigns</p>
       ) : (
         <div className="container py-32 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -71,6 +74,7 @@ const PendingCampaigns = () => {
     </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

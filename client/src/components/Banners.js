@@ -39,7 +39,7 @@ const Banner = () => {
                     <li className='font-medium'>Let’s unite to uplift others; together, we can achieve incredible things!
                     </li>
                 </ul>
-                <button className='btn-primary'>Donate</button>
+                <button href="/donate" className='btn-primary'>Donate</button>
             </div>
         </div>
       </div>

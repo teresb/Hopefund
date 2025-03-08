@@ -20,26 +20,26 @@ const Menu = ({ auth, logout, showAllLinks = true }) => {
         {auth.user && (
           <>
             <li>
-              <a href="/mycampaigns" className="text-gray-800 text-md hover:text-white">My fundraisers</a>
+              <a href="/mycampaigns" className="text-gray-800 p-2 w-full text-md hover:bg-slate-300">My fundraisers</a>
             </li>
             <li>
-              <a href="/myimpact" className="text-gray-800 text-md hover:text-white">My Impact</a>
+              <a href="/myimpact" className="text-gray-800 text-md p-2 hover:bg-slate-300">My Impact</a>
             </li>
             <li>
-              <a href="/pendingcampaigns" className="text-gray-800 text-md hover:text-white">Pending Campaigns</a>
+              <a href="/pendingcampaigns" className="text-gray-800 text-md p-2 hover:bg-slate-300">Pending Campaigns</a>
             </li>
           </>
         )}
         {showAllLinks && (
           <>
             <li>
-              <a href="/" className="text-gray-800 text-md hover:text-white">Donate</a>
+              <a href="/donate" className="text-gray-800 text-md p-2 hover:bg-slate-300">Donate</a>
             </li>
             <li>
-              <a href="#about" className="text-gray-800 text-md hover:text-white">Fundraise</a>
+              <a href="/fundraise" className="text-gray-800 text-md p-2 hover:bg-slate-300">Fundraise</a>
             </li>
             <li>
-              <a href="#services" className="text-md text-gray-800 hover:text-white">About</a>
+              <a href="/about" className="text-md text-gray-800 p-2 hover:bg-slate-300">About</a>
             </li>
           </>
         )}

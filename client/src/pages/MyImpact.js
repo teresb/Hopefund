@@ -2,11 +2,19 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 import ProgressBar from '../components/Progressbar';
+import Navbar from '../components/navbar/navbar';
+import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 
 const MyImpact = () => {
+  const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState([]);
   const { auth } = useContext(AuthContext);
+  const numCampaigns = new Set(campaigns.map(donation => donation.campaign._id));
+  const totalnumCampaigns = numCampaigns.size;
+
+
   useEffect(() => {
     const fetchDonations = async () => {
       if (!auth || !auth.user) return;
@@ -30,11 +38,21 @@ const MyImpact = () => {
 
   return (
     <div>
-      <h1>My Campaigns</h1>
-      {campaigns.length === 0 ? (
-        <p>No campaigns found.</p>
-      ) : (
-        <div className="container py-32 space-y-5">
+      <Navbar/>
+      <div className="container py-32  space-y-5">
+          <div className="flex items-center justify-center">
+            <div className="p-4 border w-[350px] h-56 text-center bg-slate-200 rounded-lg shadow-md">
+              <h2 className="text-xl font-bold">Total Campaigns Donated To</h2>
+              <p className="text-9xl">{totalnumCampaigns}</p>
+            </div>
+          </div>
+        <div className='mt-32 w-102 text-center space-y-4 pb-20'>
+            <h1 className='text-4xl text-center font-semibold'>Track the Progress of all your Donations</h1>
+            <p className='text-center text-xl'>Your generosity is making a real difference! Every donation helps bring hope to those in need. Keep supporting the causes that matter to you.</p>
+            <button
+            onClick={() => navigate("/login")}
+            className="btn-primary cursor-pointer">Donate</button>
+         </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       {campaigns.map((donation) => (
         <div key={donation._id} 
@@ -70,7 +88,7 @@ const MyImpact = () => {
       ))}
     </div>
         </div>
-      )}
+      <Footer/>
     </div>
   );
 };

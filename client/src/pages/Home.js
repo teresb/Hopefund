@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import Navbar from '../components/navbar/Navbar';
+import Navbar from '../components/navbar/navbar';
 import OverviewCounter from '../components/OverviewCounter';
 import Vision from '../components/Vision';
 import Banners from '../components/Banners';

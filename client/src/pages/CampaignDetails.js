@@ -1,11 +1,10 @@
 // src/pages/CampaignDetail.js
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "../api/axios";
-import Navbar from "../components/navbar/Navbar";
+import Navbar from "../components/navbar/navbar";
 import Footer from "../components/Footer";
 import ProgressBar from "../components/Progressbar";
-import DonationModal from "../components/donationModal";
 
 const CampaignDetail = () => {
   const { id } = useParams();
@@ -13,7 +12,7 @@ const CampaignDetail = () => {
   const [shareLink, setShareLink] = useState("");
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch campaign details based on the id from URL
@@ -41,12 +40,8 @@ const CampaignDetail = () => {
       .catch((err) => console.error("Failed to copy link:", err));
   };
 
-  const handleDonateClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleDonateNow = () => {
+    navigate("/payment", { state: { campaign } });
   };
 
   if (error) {
@@ -116,7 +111,7 @@ const CampaignDetail = () => {
 
           {/* Buttons Section */}
           <div className="flex space-x-4 mb-4">
-            <button onClick={handleDonateClick} className="btn-primary">
+            <button onClick={handleDonateNow} className="btn-primary">
               Donate Now
             </button>
             <button onClick={handleCopyShareLink} className="btn-primary">
@@ -126,7 +121,6 @@ const CampaignDetail = () => {
         </div>
       </div>
       <Footer />
-      <DonationModal isOpen={isModalOpen} onClose={handleCloseModal} campaign={campaign} />
     </div>
   );
 };

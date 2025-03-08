@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import Navbar from '../components/navbar/Navbar'
+import Navbar from '../components/navbar/navbar'
 import Footer from '../components/Footer'
 import Campaigns from '../components/Campaigns'
 import { useNavigate } from 'react-router-dom';
