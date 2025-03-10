@@ -66,7 +66,7 @@ const Hero = () => {
                 {/* Top Images */}
                 <div className="flex gap-2">
                   <img
-                    src="/assets/Header1.jpg"
+                    src="/assets/Video.png"
                     alt="Student"
                     className="w-52 h-56 rounded-tr-[100px] rounded-bl-[100px] object-cover"
                   />

@@ -19,9 +19,7 @@ const Video = () => {
             <div className='space-y-4 text-center md:text-left text-white'> 
                 <h1 className='text-4xl font-bold'>Watch Our Video</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Quisque euismod, nunc sit amet dictum luctus, nisl mi ultricies 
-                    justo, sed ultricies nunc tortor nec purus.
+                A small act of kindness can create a ripple of change. Your donation has the power to bring hope, support, and a brighter future to those in need. Every contribution, no matter the size, makes a difference. #GiveBack #SpreadKindness #DonateForACause
                 </p>
                 <button className='btn-primary !bg-white !text-black'>Get Started</button> 
             </div>

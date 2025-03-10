@@ -26,7 +26,7 @@ const Campaigns = ({ count, imageClass, showProgressBar = true, search = '', cre
   }, [count, search, creatorId]);
 
   const handleClick = (id) => {
-    navigate(`/campaigns/${id}`); // Ensure this route matches your routing setup
+    navigate(`/campaigns/${id}`);
   };
 
   if (!campaigns || campaigns.length === 0) {

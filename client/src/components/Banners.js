@@ -45,7 +45,7 @@ const Banner = () => {
       </div>
       <div className='container md:h-[500px] flex items-center justify-center py-10'>
         <div className='grid grid-cols-1 items-center gap-4 sm:grid-cols-2'>
-            <div className='lg:max-w-[400px] space-y-6'>
+            <div className='lg:max-w-[500px] space-y-6'>
                 <h1 className='text-2xl font-semibold md:text-4xl mb-4'>
                 Get the Assistance You Need
                 </h1>

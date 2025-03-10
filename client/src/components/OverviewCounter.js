@@ -22,7 +22,7 @@ const OverviewCounter = () => {
                     duration={2.75}
                 />
             </p>
-            <p className='sm:text-md text-xs md:text-lg'>Fundraisers</p>
+            <p className='sm:text-md text-xs md:text-lg'>Campaigns</p>
         </div>
         <div className='flex flex-col items-center justify-center'>
             <p className='text-sm font-bold text-black/80 dark:text-white sm:text-lg md:text-3xl'>

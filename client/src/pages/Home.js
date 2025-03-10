@@ -6,7 +6,7 @@ import Vision from '../components/Vision';
 import Banners from '../components/Banners';
 import Video from '../components/Video';
 import Footer from '../components/Footer';
-import Fundraisers from '../components/Campaigns';
+import Campaigns from '../components/Campaigns';
 
 function Home() {
     return (
@@ -20,9 +20,9 @@ function Home() {
             <div className='dark:bg-gray-900 dark:text-white'>
                 <div className="container py-16 space-y-5">
                     <h1 className="border-l-8 pl-2 text-3xl font-bold">
-                        Discover some fundraisers...
+                        Discover some Campaigns...
                     </h1>
-                    <Fundraisers count={3} imageClass="h-[250px] w-full object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" />
+                    <Campaigns count={3} imageClass="h-[250px] w-full object-cover transition duration-700 hover:skew-x-2 rounded-md hover:scale-110" />
                 </div>
             </div>
             <Footer />
