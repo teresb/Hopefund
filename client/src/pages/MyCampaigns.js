@@ -52,7 +52,7 @@ const MyCampaigns = () => {
             onClick={handleFundraiseClick}
             className="btn-primary cursor-pointer">Fundraise</button>
          </div>
-        <div className="container py-32 space-y-5">
+        <div className="container py-24 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       {campaigns.map((campaign) => (
         <div key={campaign._id} 
